@@ -11,9 +11,7 @@ function checkPasswords() {
   } else {
     showAlertError()
   }
-}
-
-password2.addEventListener("input", checkPasswords);
+};
 
 function showAlertSuccess() {
     document.getElementById("alert-success").classList.add("show");
