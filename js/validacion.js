@@ -1,19 +1,3 @@
-
-//Confirmacion de contraseña
-let password1 = document.getElementById("password1");
-let password2 = document.getElementById("password2");
-function checkPasswords() {
-
-    let confirmPassword1 = password1.value;
-    let confirmPassword2 = password2.value;
-
-  if (confirmPassword1 === confirmPassword2) {
-    showAlertSuccess()
-  } else {
-    showAlertError()
-  }
-};
-
 function showAlertSuccess() {
     document.getElementById("alert-success").classList.add("show");
     document.getElementById("alert-danger").classList.remove("show"); 
@@ -25,27 +9,21 @@ function showAlertError() {
 
 }
 
-function validarCheckbox() {
-    var checkbox = document.getElementsByClassName("form-check-input");
-    var estaMarcado = checkbox.checked;
-
-}
-
-// Espacio de comprobacion de que los input no esten vacios
+// Espacio de comprobaciones
 const registrarBtn = document.querySelector('#regBtn');
 
-registrarBtn.addEventListener('click', () => { 
+registrarBtn.addEventListener('click', () => {
+    // Verificar que los campos o esten vacios
     const nombreInput = document.querySelector('#nombre').value.trim();
     const apellidoInput = document.querySelector('#apellido').value.trim();
     const mailInput = document.querySelector('#email').value.trim();
-    const terminosCheckbox = document.querySelector('#terminos'); 
 
-
-    if((nombreInput.length === 0) || 
-    (apellidoInput.length === 0) || 
-    (mailInput.length === 0) || 
-    (!terminosCheckbox.checked)) { 
-
+    // Checkbox
+    const terminosCheckbox = document.querySelector('#terminos');
+    
+    // Confirmacion de contraseña
+    let password1 = document.getElementById("password1");
+    let password2 = document.getElementById("password2");
     let confirmPassword1 = password1.value;
     let confirmPassword2 = password2.value;
 
@@ -54,8 +32,9 @@ registrarBtn.addEventListener('click', () => {
     (apellidoInput.length === 0) || 
     (mailInput.length === 0) || 
     (!terminosCheckbox.checked) ||
-    (confirmPassword1 !== confirmPassword2)) { 
-
+    (confirmPassword1 !== confirmPassword2) || 
+    (confirmPassword1.length < 6) ||
+    (confirmPassword2.length < 6)) { 
         showAlertError();
     } else {
         showAlertSuccess(); 
