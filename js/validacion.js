@@ -21,7 +21,7 @@ registrarBtn.addEventListener('click', () => {
     const apellidoInput = document.querySelector('#apellido').value.trim();
     const mailInput = document.querySelector('#email').value.trim();
 
-    if((nombreInput.lenght === 0) || (apellidoInput.lenght === 0) || (mailInput.lenght === 0)) {
+    if((nombreInput.length === 0) || (apellidoInput.length === 0) || (mailInput.length === 0)) {
         showAlertError();
     }
 });
